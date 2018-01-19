@@ -13,6 +13,11 @@ public class VideoStoreLauncher {
 		
 		videoStoreLauncher.listInventory();
 		
+		videoStoreLauncher.checkout("The Matrix");
+		
+		videoStoreLauncher.listInventory();
+		System.out.println(videoStoreLauncher.recieveRating("The Matrix"));
+		
 	}
 	
 }
