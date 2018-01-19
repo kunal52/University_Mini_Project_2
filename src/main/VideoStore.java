@@ -2,18 +2,20 @@ package main;
 
 public class VideoStore {
 
-	
+	int total=0;
 	Video[] videos=new Video[10];
 	
 	public void addVideo(String title, boolean isCheckedOut, float aUserrating)
 	{
-		videos[videos.length]=new Video(title, isCheckedOut, aUserrating);
+		
+		videos[total]=new Video(title, isCheckedOut, aUserrating);
+		total++;
 	}
 	
 	public void checkout(String title)
 	{
 		
-		for(int i=0;i<videos.length;i++)
+		for(int i=0;i<total;i++)
 		{
 			if(videos[i].getTitle().equals(title))
 			{
@@ -25,7 +27,7 @@ public class VideoStore {
 	
 	public void returnVideo(String titile)
 	{
-		for(int i=0;i<videos.length;i++)
+		for(int i=0;i<=total;i++)
 		{
 			if(videos[i].getTitle().equals(titile))
 			{
@@ -37,7 +39,7 @@ public class VideoStore {
 	
 	public float recieveRating(String title)
 	{
-		for(int i=0;i<videos.length;i++)
+		for(int i=0;i<=total;i++)
 		{
 			if(videos[i].getTitle().equals(title))
 			{
@@ -50,8 +52,8 @@ public class VideoStore {
 	public void listInventory()
 	{
 		
-		for(Video v:videos)
-			System.out.println(v.getTitle()+"\t"+v.getaUserrating()+"\t"+v.isCheckedOut());
+		for(int i=0;i<total;i++)
+			System.out.println(videos[i].getTitle()+"\t"+videos[i].getaUserrating()+"\t"+videos[i].isCheckedOut());
 		
 	}
 	
